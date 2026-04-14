@@ -1,0 +1,21 @@
+[project]
+name = "cddd"
+version = "0.1.0"
+description = "PyTorch port of CDDD"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=3.0.2",
+    "rdkit>=2026.3.1",
+    "torch>=2.11.0",
+]
+
+[project.optional-dependencies]
+tensorflow = [ "tensorflow>=2.21.0", ]
+tests = [ "pytest" ]
+
+[project.scripts]
+cddd = "cddd.run_cddd_pytorch:main"
+
+[tool.uv]
+package = true
