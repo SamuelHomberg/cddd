@@ -14,11 +14,16 @@ uv venv # install uv first if necessary
 uv sync --extra tensorflow # tf is only required to convert the original TF weights to PyTorch
 ```
 
-Download the default_model.zip file under https://drive.google.com/open?id=1oyknOulq_j0w9kzOKKIHdTLo5HphT99h and extract it to the `cddd` folder.
+Download the default_model.zip file under
+https://drive.google.com/open?id=1oyknOulq_j0w9kzOKKIHdTLo5HphT99h
+and extract it to the `cddd` folder.
 
 ```bash
-[ -d "default_model" ] || { echo "Error: default_model not found"; exit 1; }
-uv run convert_tf_to_pt.py
+if [ ! -d "default_model" ]; then
+  echo "Error: Directory 'default_model' does not exist."
+else
+  uv run convert_tf_to_pt.py
+fi
 ```
 
 ## Usage 
@@ -42,7 +47,7 @@ decoded_smiles_list = inference_model.emb_to_seq(smiles_embedding)
 ## Extracting Molecular Descripotrs
 Run the script run_cddd.py to extract molecular descripotrs of your provided SMILES:
 ```bash
-cddd --input smiles.smi --output descriptors.csv  --smiles_header smiles
+uv run cddd --input smiles.smi --output descriptors.csv  --smiles_header smiles
 ```
 Supported input: 
   * .csv-file with one SMILES per row
