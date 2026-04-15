@@ -55,11 +55,11 @@ tests = [
 
 [package.metadata]
 requires-dist = [
-    { name = "pandas", specifier = ">=3.0.2" },
+    { name = "pandas", specifier = ">=2" },
     { name = "pytest", marker = "extra == 'tests'" },
-    { name = "rdkit", specifier = ">=2026.3.1" },
-    { name = "tensorflow", marker = "extra == 'tensorflow'", specifier = ">=2.21.0" },
-    { name = "torch", specifier = ">=2.11.0" },
+    { name = "rdkit", specifier = ">=2025" },
+    { name = "tensorflow", marker = "extra == 'tensorflow'", specifier = ">=2" },
+    { name = "torch", specifier = ">=2" },
 ]
 provides-extras = ["tensorflow", "tests"]
 
