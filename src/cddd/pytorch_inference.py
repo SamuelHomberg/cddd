@@ -119,7 +119,9 @@ class PyTorchInferenceModel:
         if not os.path.exists(vocab_path):
             vocab_path = os.path.join(DEFAULT_DATA_DIR, "indices_char.npy")
             
-        original_dict = np.load(vocab_path, allow_pickle=True).item()
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", category=np.VisibleDeprecationWarning)
+            original_dict = np.load(vocab_path, allow_pickle=True).item()
         self.encode_vocabulary = {v: k for k, v in original_dict.items()}
         self.decode_vocabulary_reverse = {v: k for k, v in self.encode_vocabulary.items()}
         vocab_size = len(self.encode_vocabulary)
@@ -226,6 +228,7 @@ def convert_tf_to_pt(model_dir, pt_model_path=None):
     if not os.path.exists(vocab_path):
         vocab_path = os.path.join(DEFAULT_DATA_DIR, "indices_char.npy")
         
+    # TODO: re-save .npy file to get rid of VisibleDeprecationWarning
     vocab = np.load(vocab_path, allow_pickle=True).item()
     vocab_size = len(vocab)
     
