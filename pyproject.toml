@@ -17,6 +17,10 @@ tests = [ "pytest" ]
 [project.scripts]
 cddd = "cddd.run_cddd_pytorch:main"
 
+[build-system]
+requires = ["uv-build"]
+build-backend = "uv_build"
+
 [tool.uv]
 package = true
 
