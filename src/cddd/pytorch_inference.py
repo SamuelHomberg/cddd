@@ -20,8 +20,10 @@ import json
 import numpy as np
 import torch
 import torch.nn as nn
+from importlib import resources
 
-DEFAULT_DATA_DIR = 'cddd/data'
+DEFAULT_DATA_DIR = resources.files("cddd").joinpath("data")
+
 
 REGEX_SML = r'Cl|Br|[#%\)\(\+\-1032547698:=@CBFIHONPS\[\]cionps]'
 

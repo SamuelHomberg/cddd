@@ -4,10 +4,11 @@ import sys
 import argparse
 import pandas as pd
 import torch
+from importlib import resources
 from cddd.pytorch_inference import PyTorchInferenceModel
 from cddd.preprocessing import preprocess_smiles
 
-DEFAULT_DATA_DIR = 'cddd/data'
+DEFAULT_DATA_DIR = resources.files("cddd").joinpath("data")
 
 _default_model_dir = 'default_model'
 FLAGS = None

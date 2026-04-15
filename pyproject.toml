@@ -19,3 +19,6 @@ cddd = "cddd.run_cddd_pytorch:main"
 
 [tool.uv]
 package = true
+
+[tool.uv.build]
+include = ["src/cddd/data/*"]
