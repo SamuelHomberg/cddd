@@ -67,7 +67,6 @@ def main():
     PARSER = argparse.ArgumentParser()
     add_arguments(PARSER)
     FLAGS, UNPARSED = PARSER.parse_known_args()
-    print(FLAGS)
 
     if FLAGS.gpu:
         os.environ['CUDA_VISIBLE_DEVICES'] = str(FLAGS.device)
